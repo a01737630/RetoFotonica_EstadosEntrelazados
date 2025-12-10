@@ -1,0 +1,31 @@
+switchtolayout;
+
+#Diseñamos la malla VARFDTD
+select("varFDTD");
+set("z",0);
+set("y",0);
+set("x",0);
+set("x span", x_ref);
+set("z span", (base_height + Alt_SiO2)*1e-6);
+set("y span", Y_base*1e-6);
+set("x0", -x_ref/2.02);
+set("y0", -y_span*1e-6/2);
+
+
+#to do: terminar de ubicar los testpoints
+test_points = [
+    #-x_ref/2.02,   -y_span*1e-6/2;
+     0, 0;
+     -x_ref/2 + lw*1e-6/2 ,   -y_span*1e-6/2; 
+     -lc*1e-6/2, -(gap + base_width)*1e-6/2;
+     -lc*1e-6/2, (gap + base_width)*1e-6/2;
+     -lc*1e-6/2, 0;
+     lc*1e-6/2, -(gap + base_width)*1e-6/2;
+     lc*1e-6/2, (gap + base_width)*1e-6/2;
+     lc*1e-6/2, 0;
+     x_ref/2 - lw*1e-6/2,   -y_span*1e-6/2;
+     x_ref/2 - lw*1e-6/2,   y_span*1e-6/2
+      ];
+
+set("test points", test_points);
+set("number of test points", 11);

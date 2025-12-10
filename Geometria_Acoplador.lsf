@@ -1,0 +1,90 @@
+
+switchtolayout;
+
+#Principal_AD_prop;
+
+
+select("AD");
+set("Lc", lc*1e-6);
+set("Lw", lw*1e-6);
+set("base width",  base_width*1e-6);
+set("base height", base_height*1e-6);
+set("gap", gap*1e-6);
+set("y span", y_span*1e-6);
+set("Ls", ls__*1e-6);
+ls_ = get("Ls");
+# CENTRAR EL ACOPLADOR
+x_ref = (lw*1e-6*2) + (ls_*2) + (lc*1e-6);
+set("x", -x_ref/2);
+set("y", 0);
+set("z", 0);
+
+
+extra = base_height;
+Y_base = y_span + 5*extra;
+
+
+select("SiO2");
+
+z_SiO2 = -( base_height/2 + Alt_SiO2/2 );
+
+set("x span", x_ref);
+set("x", 0);
+set("y", 0);
+set("z", z_SiO2*1e-6);
+
+set("y span", Y_base*1e-6);
+set("z span", Alt_SiO2*1e-6);
+
+
+select("Si");
+
+z_Si = -( base_height/2 + Alt_SiO2 + Alt_Si/2 );
+
+set("x span", x_ref);
+set("y span", Y_base*1e-6);
+set("z span", Alt_Si*1e-6);
+set("x", 0);
+set("y", 0);
+set("z", z_Si*1e-6);
+
+select("source");
+set("y",-y_span*1e-6/2);
+set("x", -x_ref/2.02);
+set("center wavelength", lambda*1e-6);
+set("wavelength span", sigma*1e-6);
+
+select("video");
+set("x span", x_ref);
+set("y span", Y_base*1e-6);
+
+select("monitor_L");
+set("x span", x_ref);
+set("y span", Y_base*1e-6);
+
+select("monitor_Modos");
+set("y",0);
+set("z",0);
+set("x", x_ref/2 - lw*1e-6/2);
+
+select("monitor_T1");
+set("x", x_ref/2 - lw*1e-6/2);
+set("y", y_span*1e-6/2);
+set("y span", base_width*1e-6);
+set("z span", base_height*6*1e-6);
+
+
+select("monitor_T2");
+set("x", x_ref/2 - lw*1e-6/2);
+set("y", -y_span*1e-6/2);
+set("y span", base_width*1e-6);
+set("z span", base_height*6*1e-6);
+
+select("monitor_T_inicial");
+set("x", -x_ref/2 + lw*1e-6/2);
+set("y", -y_span*1e-6/2);
+set("y span", base_width*1e-6);
+set("z span", base_height*6*1e-6);
+
+
+

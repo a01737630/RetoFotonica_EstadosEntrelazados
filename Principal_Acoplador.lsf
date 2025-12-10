@@ -1,0 +1,35 @@
+###Todas las unidades estan dadas en micrometros
+clear;
+switchtolayout;
+
+#Alt -> Y, Anch -> X, Prof -> Z
+#-----Parametros Base
+
+Alt_SiO2=2;                                           
+Anc_SiO2=8;                                           
+Alt_Si=Alt_SiO2;                                                            
+Anc_Si=Anc_SiO2;
+  
+#----Parametros Acoplador Direccional.
+#No se cambia La longitud del S bend
+
+lw = 2;
+y_span = 6;
+#Considerar un F mayor que T para que no haya ningun problema
+F = 2;
+lc = 95*0.63;
+base_height = 0.43;
+base_width = 0.5;
+gap = 0.3;
+ls__ = F*(y_span - gap); 
+#-----Parámetros Malla
+resol_z_FDE=50;                                       #Resolucion en x de la malla FDE
+resol_y_FDE=50;
+sale_FDE=1;
+
+#Parámetros de la luz entrante
+lambda = 0.823;
+sigma = 0.5;
+
+Geometria_AD_prop;
+Mallas_AD_prop;
